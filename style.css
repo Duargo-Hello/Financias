@@ -1,0 +1,441 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* TEMA CLARO (PADRÃO) */
+body {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  transition: 0.3s;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+header h1 {
+  font-size: 28px;
+}
+
+#toggleTema {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  transition: 0.3s;
+}
+
+#toggleTema:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* FORM */
+.form-group {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #4e73df;
+  outline: none;
+}
+
+/* BOTÕES */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: #4e73df;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2e59d9;
+}
+
+.btn-danger {
+  background: #e74a3b;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+/* FILTROS */
+.filtros {
+  display: flex;
+  gap: 10px;
+}
+
+
+/* RESUMO */
+.resumo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.resumo-item strong {
+  font-size: 18px;
+  color: #c0392b;
+}
+
+.resumo-item.pago strong {
+  color: #1cc88a;
+}
+
+/* LISTA */
+#lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  padding: 15px;
+  border-radius: 10px;
+  background: #f8f9fc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item.pago {
+  background: #edd4d4;
+  text-decoration: line-through;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 300px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* TEMA ESCURO */
+body.dark {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+body.dark .card {
+  background: #1f2937;
+  color: white;
+}
+
+body.dark input,
+body.dark select {
+  background: #374151;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark .item {
+  background: #2c3e50;
+}
+
+body.dark .modal-content {
+  background: #1f2937;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .resumo {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filtros {
+    flex-direction: column;
+  }
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+.dia {
+  padding: 10px;
+  border-radius: 8px;
+  background: #f1f1f1;
+}
+
+.temConta {
+  background: #4e73df;
+  color: white;
+}
+
+.vencida {
+  background: #e74a3b;
+  color: white;
+}
+.notificacao {
+  display: none;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease;
+}
+
+.notificacao.ativa {
+  display: block;
+}
+
+.notificacao.erro {
+  background: #e74a3b;
+  color: white;
+}
+
+.notificacao.sucesso {
+  background: #1cc88a;
+  color: white;
+}
+.item.vencida {
+  border: 2px solid #e74a3b;
+  background: #fdecea;
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendario-header button {
+  background: #4e73df;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calendario-header button:hover {
+  background: #2e59d9;
+}
+/* =========================
+   TEMA ESCURO COMPLETO
+========================= */
+
+body.dark {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+/* HEADER */
+body.dark header {
+  color: #ffffff;
+}
+
+/* CARDS */
+body.dark .card {
+  background: #1f2937;
+  color: #f1f5f9;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+body.dark .card h2 {
+  color: #ffffff;
+}
+
+/* INPUTS */
+body.dark input,
+body.dark select {
+  background: #374151;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+body.dark input::placeholder {
+  color: #cbd5e1;
+}
+
+/* LISTA */
+body.dark .item {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+body.dark .item.pago {
+  background: #14532d;
+  color: #bbf7d0;
+}
+
+/* BOTÕES */
+body.dark .btn-primary {
+  background: #2563eb;
+}
+
+body.dark .btn-primary:hover {
+  background: #1d4ed8;
+}
+
+body.dark .btn-danger {
+  background: #dc2626;
+}
+
+body.dark .btn-danger:hover {
+  background: #b91c1c;
+}
+
+/* MODAL */
+body.dark .modal-content {
+  background: #1f2937;
+  color: #ffffff;
+}
+
+/* RESUMO */
+body.dark .resumo-item strong {
+  color: #f87171;
+}
+
+body.dark .resumo-item.pago strong {
+  color: #34d399;
+}
+
+/* CALENDÁRIO */
+body.dark .dia {
+  background: #334155;
+  color: #ffffff;
+}
+
+body.dark .temConta {
+  background: #2563eb;
+}
+
+body.dark .vencida {
+  background: #dc2626;
+}
+
+/* BOTÕES CALENDÁRIO */
+body.dark .calendario-header button {
+  background: #2563eb;
+}
+
+body.dark .calendario-header button:hover {
+  background: #1d4ed8;
+}
+
+/* NOTIFICAÇÕES */
+body.dark .notificacao.sucesso {
+  background: #065f46;
+}
+
+body.dark .notificacao.erro {
+  background: #7f1d1d;
+}
+/* Garantir transição suave */
+body,
+.card,
+.item,
+.modal-content,
+input,
+select {
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.item.parcial {
+  border: 2px solid #f39c12;
+  background: #fff4e6;
+}
+
+
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .item div:last-child {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  input, select, button {
+    width: 100%;
+  }
+}
